@@ -3,7 +3,7 @@
 A simple static website (plain HTML/CSS/JS, no build step) for reviewing Romanian grammar.
 Each section has a button in the sidebar and two tabs: "Theory" and "Tests".
 
-Live site: https://romanian-grammar.onrender.com/#demonstratives/theory
+Live site: https://romanian-grammar.onrender.com
 
 ## Run locally
 
