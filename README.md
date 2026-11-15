@@ -1,33 +1,28 @@
-# Граматика румунської
+# Romanian Grammar
 
-Простий статичний сайт (HTML/CSS/JS, без збірки) для повторення граматики.
-Кожен розділ = кнопка в сайдбарі + вкладки «Теорія» і «Тести».
+A simple static website (plain HTML/CSS/JS, no build step) for reviewing Romanian grammar.
+Each section has a button in the sidebar and two tabs: "Theory" and "Tests".
 
-## Локальний запуск
+Live site: https://romanian-grammar.onrender.com/#demonstratives/theory
+
+## Run locally
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Відкрити http://localhost:8000
+Then open http://localhost:8000
 
-## Як додати новий розділ
+## Adding a new section
 
-1. Створити `sections/<назва>.js` за зразком `sections/possession.js`:
-   - `id` — короткий ідентифікатор (використовується в URL: `#id/theory`),
-   - `title`, `subtitle` — для сайдбара,
-   - `theory` — HTML з поясненням (класи: `card`, `forms`-таблиці, `note`, `warn`, `ro` для румунських слів),
-   - `tests` — масив питань:
+1. Create `sections/<name>.js`, following the example in `sections/possession.js`:
+   - `id` — short identifier, used in the URL (`#id/theory`),
+   - `title`, `subtitle` — shown in the sidebar,
+   - `theory` — HTML with the explanation (classes: `card`, `forms` tables, `note`, `warn`, `ro` for Romanian words),
+   - `tests` — an array of questions:
      - `{ type: 'choice', q, options: [...], answer, explain }`
-     - `{ type: 'input', q, answers: [...], explain }` (діакритика не обов'язкова — буде зараховано з підказкою).
-2. Додати `<script src="sections/<назва>.js"></script>` в `index.html` перед `js/app.js`.
-   Порядок скриптів = порядок кнопок у сайдбарі.
+     - `{ type: 'input', q, answers: [...], explain }` (diacritics are optional — an answer without them is accepted with a hint).
+2. Add `<script src="sections/<name>.js"></script>` to `index.html` before `js/app.js`.
+   Script order determines the order of the sidebar buttons.
 
-## Деплой на Render (безкоштовно)
-
-1. Залити папку на GitHub.
-2. Render → **New → Static Site** → обрати репозиторій.
-3. **Build Command**: порожньо. **Publish Directory**: `.`
-4. Після кожного `git push` сайт оновлюється автоматично.
-
-Найкращі результати тестів зберігаються в `localStorage` браузера.
+Best test scores are stored in the browser's `localStorage`.
